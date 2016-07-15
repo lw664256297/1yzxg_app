@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title>Hello MUI</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+		<!--标准mui.css-->
+		<link rel="stylesheet" href="../css/mui.min.css">
+		<!--App自定义的css-->
+		<style>
+			.mui-row.mui-fullscreen>[class*="mui-col-"] {
+				height: 100%;
+			}
+			.mui-col-xs-3,
+			.mui-control-content {
+				overflow-y: auto;
+				height: 100%;
+			}
+			.mui-segmented-control .mui-control-item {
+				line-height: 50px;
+				width: 100%;
+			}
+			.mui-segmented-control.mui-segmented-control-inverted .mui-control-item.mui-active {
+				background-color: #fff;
+			}
+		</style>
+		<style>
+			html,
+			body {
+				background-color: #efeff4;
+			}
+			.mui-bar~.mui-content .mui-fullscreen {
+				top: 44px;
+				height: auto;
+			}
+			.mui-pull-top-tips {
+				position: absolute;
+				top: -20px;
+				left: 50%;
+				margin-left: -25px;
+				width: 40px;
+				height: 40px;
+				border-radius: 100%;
+				z-index: 999;
+			}
+			.mui-bar~.mui-pull-top-tips {
+				top: 24px;
+			}
+			.mui-pull-top-wrapper {
+				width: 42px;
+				height: 42px;
+				display: block;
+				text-align: center;
+				background-color: #efeff4;
+				border: 1px solid #ddd;
+				border-radius: 25px;
+				background-clip: padding-box;
+				box-shadow: 0 4px 10px #bbb;
+				overflow: hidden;
+			}
+			.mui-pull-top-tips.mui-transitioning {
+				-webkit-transition-duration: 200ms;
+				transition-duration: 200ms;
+			}
+			.mui-pull-top-tips .mui-pull-loading {
+				margin: 0;
+			}
+			.mui-pull-top-wrapper .mui-icon,
+			.mui-pull-top-wrapper .mui-spinner {
+				margin-top: 7px;
+			}
+			.mui-pull-top-wrapper .mui-icon.mui-reverse {
+				/*-webkit-transform: rotate(180deg) translateZ(0);*/
+			}
+			.mui-pull-bottom-tips {
+				text-align: center;
+				background-color: #efeff4;
+				font-size: 15px;
+				line-height: 40px;
+				color: #777;
+			}
+			.mui-pull-top-canvas {
+				overflow: hidden;
+				background-color: #fafafa;
+				border-radius: 40px;
+				box-shadow: 0 4px 10px #bbb;
+				width: 40px;
+				height: 40px;
+				margin: 0 auto;
+			}
+			.mui-pull-top-canvas canvas {
+				width: 40px;
+			}
+			.mui-slider-indicator.mui-segmented-control {
+				background-color: #efeff4;
+			}
+			.mui-table-view .mui-media-object {
+			    line-height: 42px;
+			    max-width: 85px;
+			    height: 65px;
+			}
+			.mui-progressbar {
+				height: 5px;
+			}
+			.mui-progressbar span {
+				background-color: #dd524d;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div class="mui-content mui-row mui-fullscreen">
+			<div class="mui-col-xs-3">
+				<div id="segmentedControls" class="mui-segmented-control mui-segmented-control-inverted mui-segmented-control-vertical">
+				</div>
+			</div>
+			<div id="segmentedControlContents" class="mui-col-xs-9" style="border-left: 1px solid #c8c7cc;">
+				<div id="item1" class="mui-control-content mui-active">
+				</div>
+				<div id="item2" class="mui-control-content">
+				</div>
+				<div id="item3" class="mui-control-content">
+				</div>
+			</div>
+		</div>
+		<script src="../js/mui.js"></script>
+		<script src="../js/jquery-2.1.0.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../js/mui.pullToRefresh.js"></script>
+		<script src="../js/mui.pullToRefresh.material.js"></script>
+		<script>
+			mui.init({
+				swipeBack: true //启用右滑关闭功能
+			});
+			var controls = document.getElementById("segmentedControls");
+			var contents = document.getElementById("segmentedControlContents");
+			var html = [];
+			var i = 1,
+				j = 1,
+				m = 16, //左侧选项卡数量+1
+				n = 21; //每个选项卡列表数量+1
+			for (; i < m; i++) {
+				html.push('<a class="mui-control-item" href="#content' + i + '">选项' + i + '</a>');
+			}
+			controls.innerHTML = html.join('');
+			html = [];
+			for (i = 1; i < m; i++) {
+				html.push('<div id="content' + i + '" class="mui-control-content"><div class="mui-content mui-scroll-wrapper"><div class="mui-scroll"><ul id="proUl" class="mui-table-view mui-table-view-chevron">');
+				var tli="";
+				for (j = 1; j < n; j++) {
+					var rdom=-(Math.floor((Math.random()*100)+1));
+					tli+="<li class=\"mui-table-view-cell mui-media\" style=\"height:90px\">";
+					tli+="<a href=\"javascript:;\">";
+					tli+="<img class=\"mui-media-object mui-pull-left\" src=\"../images/banner.png\">";
+					tli+="<div class=\"mui-media-body\">";
+					tli+="<span style=\"font-size: 14px;color: black;font-weight: 700;\">路虎发现神行2.0T版</span>";
+					tli+="<p class=\"mui-ellipsis\"><span style=\"font-size: 12px;\">总需</span> 777</p>";
+					tli+="<p class=\"mui-progressbar mui-progressbar-in\" data-progress=\"80\"><span style=\"transform: translate3d("+rdom+"%, 0px, 0px);\"></span></p>";
+					tli+="<p class=\"mui-ellipsis\"><span style=\"font-size: 12px;\">剩余</span> 666</p>";
+					tli+="</p>";
+					tli += "<div class=\"cic_bg\" style=\"width: 40px; height: 40px;position: absolute;bottom: 6px;right: 6px;border-radius: 50%;float: left;text-align: right; background-color:#e82743;\">";
+					tli += "<div class=\"icon_shop\" style=\"position: absolute;text-align: center;top: 8px;\"><img src=\"../images/index7.png\" width=\"60%\"></div></div>";
+					tli+="</div>";
+					tli+=" </a>";
+					tli+="</li>";
+					html.push(tli);
+				}
+				html.push('</ul></div></div></div>');
+			}
+			contents.innerHTML = html.join('');
+			 //默认选中第一个
+			controls.querySelector('.mui-control-item').classList.add('mui-active');
+			contents.querySelector('.mui-control-content').classList.add('mui-active');
+			
+			mui.ready(function() {
+					//循环初始化所有下拉刷新，上拉加载。
+					mui.each(document.querySelectorAll('#segmentedControlContents .mui-scroll'), function(index, pullRefreshEl) {
+						mui(pullRefreshEl).pullToRefresh({
+							down: {
+								callback: function() {
+									var self = this;
+									setTimeout(function() {
+										var tli="";
+										for(var i=0;i<10;i++){
+											var rdom=-(Math.floor((Math.random()*100)+1));
+											tli+="<li class=\"mui-table-view-cell mui-media\" style=\"height:90px\">";
+											tli+="<a href=\"javascript:;\">";
+											tli+="<img class=\"mui-media-object mui-pull-left\" src=\"../images/banner.png\">";
+											tli+="<div class=\"mui-media-body\">";
+											tli+="<span style=\"font-size: 14px;color: black;font-weight: 700;\">路虎发现神行2.0T版</span>";
+											tli+="<p class=\"mui-ellipsis\"><span style=\"font-size: 12px;\">总需</span> 777</p>";
+											tli+="<p class=\"mui-progressbar mui-progressbar-in\" data-progress=\"80\"><span style=\"transform: translate3d("+rdom+"%, 0px, 0px);\"></span></p>";
+											tli+="<p class=\"mui-ellipsis\"><span style=\"font-size: 12px;\">剩余</span> 666</p>";
+											tli+="</p>";
+											tli += "<div class=\"cic_bg\" style=\"width: 40px; height: 40px;position: absolute;bottom: 6px;right: 6px;border-radius: 50%;float: left;text-align: right; background-color:#e82743;\">";
+											tli += "<div class=\"icon_shop\" style=\"position: absolute;text-align: center;top: 8px;\"><img src=\"../images/index7.png\" width=\"60%\"></div></div>";
+											tli+="</div>";
+											tli+=" </a>";
+											tli+="</li>";
+											html.push(tli);
+										}
+										$("#proUl").html(tli);
+										self.endPullDownToRefresh();
+									}, 1000);
+								}
+							},
+							up: {
+								callback: function() {
+									var self = this;
+									setTimeout(function() {
+										var tli="";
+										for(var i=0;i<10;i++){
+											var rdom=-(Math.floor((Math.random()*100)+1));
+											tli+="<li class=\"mui-table-view-cell mui-media\" style=\"height:90px\">";
+											tli+="<a href=\"javascript:;\">";
+											tli+="<img class=\"mui-media-object mui-pull-left\" src=\"../images/banner.png\">";
+											tli+="<div class=\"mui-media-body\">";
+											tli+="<span style=\"font-size: 14px;color: black;font-weight: 700;\">路虎发现神行2.0T版</span>";
+											tli+="<p class=\"mui-ellipsis\"><span style=\"font-size: 12px;\">总需</span> 777</p>";
+											tli+="<p class=\"mui-progressbar mui-progressbar-in\" data-progress=\"80\"><span style=\"transform: translate3d("+rdom+"%, 0px, 0px);\"></span></p>";
+											tli+="<p class=\"mui-ellipsis\"><span style=\"font-size: 12px;\">剩余</span> 666</p>";
+											tli+="</p>";
+											tli += "<div class=\"cic_bg\" style=\"width: 40px; height: 40px;position: absolute;bottom: 6px;right: 6px;border-radius: 50%;float: left;text-align: right; background-color:#e82743;\">";
+											tli += "<div class=\"icon_shop\" style=\"position: absolute;text-align: center;top: 8px;\"><img src=\"../images/index7.png\" width=\"60%\"></div></div>";
+											tli+="</div>";
+											tli+=" </a>";
+											tli+="</li>";
+											html.push(tli);
+										}
+										$("#proUl").append(tli);
+										self.endPullUpToRefresh();
+									}, 1000);
+								}
+							}
+						});
+					});
+				});
+		</script>
+
+	</body>
+
+</html>

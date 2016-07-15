@@ -1,0 +1,89 @@
+a {
+				color: #333;
+			}
+			
+			.mui-bar-nav {
+				background-color: #dd3652;
+			}
+			
+			.mui-title {
+				color: #fff;
+				font-size: 24px;
+			}
+			
+			.box {
+				width: 100%;
+				display: block;
+				background-color: #fff;
+				float: left;
+			}
+			
+			.mt44 {
+				margin-top: 44px;
+			}
+			
+			.mb50 {
+				margin-bottom: 50px;
+			}
+			
+			.mui-bar .mui-icon {
+				font-size: 20px;
+			}
+			
+			.mui-bar-tab .mui-tab-item.mui-active {
+				color: #dd3652;
+			}
+			
+			.fl {
+				float: left;
+			}
+			
+			.mui-table-view-cell:after {
+				left: 0;
+			}
+			
+			.mui-table-view .mui-media-object {
+				line-height: 42px;
+				max-width: 70px;
+				height: 86px;
+			}
+			
+			.mui-table-view:after {
+				position: inherit;
+			}
+			
+			.mui-ellipsis {
+				font-size: 18px;
+				color: #bc415d;
+				text-align: center;
+			}
+			
+			.mui-media-body {
+				line-height: 30px;
+			}
+			
+			.index1 {
+				border: #F1F1F1 solid 1px;
+				width: 50%;
+				padding: 10px;
+				min-height: 0;
+				overflow: hidden;
+				zoom: 1;
+				float: left;
+			}
+			
+			.index1_img {
+				padding-top: 5px;
+			}
+			
+			.fs14 {
+				font-size: 14px;
+				color: #666;
+			}
+			
+			.red{
+				color: #bc415d;
+			}
+			.blue {color: #3456f8;}
+			.time { float: right; color: #aaa;}
+			.title{ line-height: 36px; font-size: 18px; color: #333;}

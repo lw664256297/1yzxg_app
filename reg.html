@@ -1,0 +1,140 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>注册</title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link href="css/mui.min.css" rel="stylesheet" />
+		<style>
+			.login-header{
+				background-color: #db3752;
+			}
+			.haer-style-color{
+				color: white;
+			}
+			#phone,#pwd{
+				background-color: white;
+				text-align: center;
+				font-size: 15px;
+			}
+			
+			.mui-col-sm-7{
+				width: 70%;
+				margin-left: 15%;
+			}
+			.btn-login-reg{
+    			width: 60%;
+    			font-size: 18px;
+    			margin-left: 20%;
+    			background-color: #8bcd90;
+    			border: none!important;
+			}
+			#chec-true{
+				width: 15px;
+				height: 15px;
+				left: 0;
+			}
+			.left-chebox{
+				position: relative;
+			}
+			
+			#chec-true{
+				position: absolute;
+				left: 0!important;
+				top: 24px;
+			}
+			.right-text{
+				position: absolute;
+				left: 25px;
+
+				font-size: 12px;
+			}
+		</style>
+	</head>
+
+	<body>
+		<header class="mui-bar mui-bar-nav login-header">
+			<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left haer-style-color"></a>
+			<h1 class="mui-title haer-style-color">注册</h1>
+		</header>
+
+		<div class="mui-content">
+			<br>
+			<br>
+			<form class="mui-col-sm-7">
+				<div class="mui-input-row">
+		
+					<input type="text" class="mui-input-clear" maxlength="11" id="phone" placeholder="请输入手机号码">
+				</div>
+				<div class="mui-input-row">
+		
+					<input type="password" class="mui-input-clear" maxlength="15" id="pwd" placeholder="请输入密码">
+				</div>
+	
+				<button type="button" id="regBtn" class="mui-btn mui-btn-blue mui-block btn-login-reg">注册</button>
+				
+				<div class="mui-left left-chebox">
+				
+				<br />
+  				<label class="right-text">我已看过并同意一元购<a>《用户使协议》</a></label>
+  					<input name="checkbox1" value="Item 1" type="checkbox" id="chec-true">
+				</div>
+				
+			</form>
+			<br>
+		</div>
+
+		<script src="js/mui.min.js"></script>
+		<script type="text/javascript">
+			mui.init();
+			mui.plusReady(function() {
+				localStorage.setItem("url", "http://192.168.0.102:8083")
+				document.getElementById("regBtn").addEventListener("tap", function() {
+					var phone = document.getElementById("phone").value;
+					var pwd = document.getElementById("pwd").value;
+					var jd = "";
+					var wd = "";
+					var uuid = plus.device.uuid;
+					plus.geolocation.getCurrentPosition(function(position) {
+						var codns = position.coords; //获取地理坐标信息；
+						wd = codns.latitude; //获取到当前位置的纬度；
+						jd = codns.longitude; //获取到当前位置的经度
+
+						mui.ajax(localStorage.getItem("url") + "/reg/" + phone + "/" + pwd + "/" + jd + "/" + wd + "/" + uuid, {
+							data: {},
+							dataType: 'json', //服务器返回json格式数据
+							type: 'get', //HTTP请求类型
+							timeout: 10000, //超时时间设置为10秒；
+							success: function(data) {
+								if (data.status == 0) {
+									mui.toast(data.msg);
+									mui.openWindow({
+										url: 'login.html',
+										id: 'login.html'
+									})
+								} else {
+									mui.toast(data.msg);
+								}
+							},
+							error: function(xhr, type, errorThrown) {
+								//mui.toast("出现异常!"+type+","+errorThrown);
+								if (type == "timeout") {
+									mui.toast("网络超时！");
+								}
+
+							}
+						});
+					}, function(e) {
+						mui.toast("获取位置信息失败！无法注册！请先打开GPS");
+						return;
+					}, {
+						geocode: false
+					});
+
+				})
+			})
+		</script>
+	</body>
+
+</html>

@@ -1,0 +1,78 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>登陆</title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link href="css/mui.min.css" rel="stylesheet" />
+		<link type="text/css" rel="stylesheet" href="css/logo_reg.css">
+	</head>
+	<body>
+		<header class="mui-bar mui-bar-nav login-header">
+			<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left haer-style-color"></a>
+			<h1 class="mui-title haer-style-color">登录</h1>
+			<a class="mui-icon-right-nav mui-pull-right reg-text haer-style-color">注册</a>
+		</header>
+		<div class="mui-content">
+			<br>
+			<br>
+			<div class="mui-col-sm-8 form-div">
+			<form>
+				<div class="mui-input-row">
+			
+					<input type="text" class="mui-input-clear" id="phone" placeholder="请输入手机号码">
+				</div>
+				<div class="mui-input-row">
+					<input type="password" class="mui-input-clear" id="pwd" placeholder="请输入密码">
+				</div>
+	
+			</form>
+			<br/>
+					<button type="button" id="login" class="mui-btn mui-btn-blue mui-block btn-login-reg">立即登录</button>
+
+			</div>
+			<br>
+		</div>
+
+		<script src="js/mui.min.js"></script>
+		<script type="text/javascript">
+			mui.init();
+			mui.plusReady(function() {
+				localStorage.setItem("url", "http://192.168.0.102:8083");
+				document.getElementById("login").addEventListener("tap", function() {
+					var phone = document.getElementById("phone").value;
+					var pwd = document.getElementById("pwd").value;
+					
+					mui.openWindow({
+						url:"mobile/main.html",
+						id:"mobile/main.html"
+					})
+
+//					mui.ajax(localStorage.getItem("url") + "/login/" + phone + "/" + pwd, {
+//						data: {},
+//						dataType: 'json', //服务器返回json格式数据
+//						type: 'get', //HTTP请求类型
+//						timeout: 10000, //超时时间设置为10秒；
+//						success: function(data) {
+//							if (data.status == 0) {
+//								mui.toast(data.msg);
+//								mui.alert(data.data[0].phone);
+//							} else {
+//								mui.toast(data.msg);
+//							}
+//						},
+//						error: function(xhr, type, errorThrown) {
+//							//mui.toast("出现异常!"+type+","+errorThrown);
+//							if (type == "timeout") {
+//								mui.toast("网络超时！");
+//							}
+//
+//						}
+//					});
+
+				})
+			})
+		</script>
+	</body>
+
+</html>

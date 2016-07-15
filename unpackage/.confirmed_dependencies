@@ -1,0 +1,168 @@
+{
+	"index.html": {
+		"resources": [
+			"tab-webview-subpage-chat.html",
+			"fonts/mui.ttf",
+			"css/mui.min.css",
+			"tab-webview-subpage-setting.html",
+			"js/mui.min.js",
+			"tab-webview-subpage-about.html",
+			"css/app.css"
+		],
+		"refer": [
+			"tab-webview-subpage-chat.html",
+			"tab-webview-subpage-setting.html",
+			"tab-webview-subpage-about.html",
+			"tab-webview-subpage-contact.html"
+		]
+	},
+	"tab-with-segmented-control-vertical.html": {
+		"resources": [
+			"js/mui.min.js",
+			"css/app.css",
+			"fonts/mui.ttf",
+			"css/mui.min.css"
+		]
+	},
+	"reg.html": {
+		"resources": [
+			"js/mui.min.js",
+			"fonts/mui.ttf",
+			"css/mui.min.css"
+		],
+		"refer": [
+			"login.html"
+		]
+	},
+	"login.html": {
+		"resources": [
+			"js/mui.min.js",
+			"fonts/mui.ttf",
+			"css/mui.min.css"
+		],
+		"refer": [
+			"mobile/index.html",
+			"mobile/main.html"
+		]
+	},
+	"mobile/index_subpage.html": {
+		"resources": [
+			"images/index9.png",
+			"images/ad2.png",
+			"images/index6.png",
+			"images/index7.png",
+			"images/banner.png",
+			"images/ad3.png",
+			"images/ad1.png",
+			"fonts/mui.ttf",
+			"js/mui.js",
+			"css/mui.css",
+			"js/jquery-2.1.0.js",
+			"js/mobile/index_subpage.js",
+			"css/mobile/index_subpage.css",
+			"js/mui.min.js",
+			"css/iconfont.css",
+			"css/mui.min.css"
+		],
+		"refer": [
+			"mobile/pro_detail.html"
+		]
+	},
+	"mobile/index.html": {
+		"resources": [
+			"mobile/index_subpage.html",
+			"js/mui.js",
+			"css/mui.css",
+			"js/mobile/index.js",
+			"js/jquery-2.1.0.js",
+			"css/iconfont.css"
+		],
+		"refer": [
+			"mobile/index_subpage.html"
+		]
+	},
+	"mobile/main.html": {
+		"resources": [
+			"mobile/index.html",
+			"js/mui.js",
+			"css/mui.css",
+			"js/mobile/main.js",
+			"fonts/mui.ttf",
+			"js/mui.min.js",
+			"css/mui.min.css"
+		],
+		"refer": [
+			"mobile/car.html",
+			"mobile/index.html",
+			"mobile/all_product.html",
+			"mobile/my.html",
+			"mobile/find.html"
+		]
+	},
+	"mobile/all_product.html": {
+		"resources": [
+			"images/index7.png",
+			"images/banner.png",
+			"js/mui.pullToRefresh.js",
+			"js/mui.pullToRefresh.material.js",
+			"css/mui.min.css",
+			"js/mui.js",
+			"js/jquery-2.1.0.js"
+		]
+	},
+	"mobile/find.html": {
+		"resources": [
+			"mobile/find_subpage.html",
+			"js/mobile/find.js"
+		],
+		"refer": [
+			"mobile/find_subpage.html"
+		]
+	},
+	"mobile/find_subpage.html": {
+		"refer": [
+			"mobile/pro_detail.html"
+		],
+		"resources": [
+			"js/mobile/find_subpage.js",
+			"images/index6.png",
+			"js/mui.js",
+			"css/mui.css",
+			"css/mobile/find_subpage.css"
+		]
+	},
+	"mobile/pro_detail.html": {
+		"resources": [
+			"mobile/pro_detail_subpage.html",
+			"css/mobile/pro_detail_subpage.css",
+			"fonts/iconfont.ttf",
+			"js/mobile/pro_detail.js",
+			"fonts/mui.ttf",
+			"css/iconfont.css",
+			"css/mui.min.css",
+			"js/jquery-2.1.0.js",
+			"js/mui.js"
+		],
+		"refer": [
+			"mobile/pro_detail_subpage.html"
+		]
+	},
+	"mobile/pro_detail_subpage.html": {
+		"resources": [
+			"images/muwu.jpg",
+			"images/60x60.gif",
+			"images/line01.png",
+			"js/mobile/pro_detail_subpage.js"
+		]
+	},
+	"mobile/car.html": {
+		"resources": [
+			"js/mui.js"
+		]
+	},
+	"mobile/my.html": {
+		"resources": [
+			"css/mui.css"
+		]
+	}
+}
